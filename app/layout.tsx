@@ -3,6 +3,7 @@ import { manrope } from "./fonts";
 import { content } from "@/content/site";
 import { siteUrl } from "@/lib/site-url";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <Header />
         <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   );
