@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #fa9860;
+  --color-brand-ink: #a84a1a;
+  --color-cream: #f6f4f0;
+  --color-cream-deep: #ece8e0;
+  --color-ink: #2e211a;
+  --color-ink-muted: #6b5a4e;
+
+  --font-display: var(--font-brice, "Brice Fallback"), Arial, "Helvetica Neue", sans-serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+
+  --text-phi-0: 1rem;
+  --text-phi-1: clamp(1.125rem, 1rem + 0.6vw, 1.618rem);
+  --text-phi-2: clamp(1.5rem, 1.1rem + 1.8vw, 2.618rem);
+  --text-phi-3: clamp(2rem, 1.2rem + 3.6vw, 4.236rem);
+
+  --spacing-phi-1: 0.8125rem;
+  --spacing-phi-2: 1.3125rem;
+  --spacing-phi-3: 2.125rem;
+  --spacing-phi-4: 3.4375rem;
+  --spacing-phi-5: 5.5625rem;
+  --spacing-phi-6: 9rem;
+}
+
+/* TODO: Karolina — po wgraniu Brice (app/fonts/README.md) dobierz size-adjust do realnych metryk;
+   przy next/font/local z adjustFontFallback Next robi to automatycznie. */
+@font-face {
+  font-family: "Brice Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Liberation Sans");
+  size-adjust: 112%;
+  ascent-override: 88%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.618;
+  overflow-x: clip;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--color-brand);
+  border-radius: 2px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
