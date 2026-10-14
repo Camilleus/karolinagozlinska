@@ -7,10 +7,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const subsets: ("latin" | "latin-ext")[] = ["latin", "latin-ext"];
-const manrope = Manrope({ subsets });
-const dmSans = DM_Sans({ subsets });
-const figtree = Figtree({ subsets });
+const manrope = Manrope({ subsets: ["latin", "latin-ext"] });
+const dmSans = DM_Sans({ subsets: ["latin", "latin-ext"] });
+const figtree = Figtree({ subsets: ["latin", "latin-ext"] });
 
 const SAMPLES = [
   { label: "Brice SemiExpanded (fallback, dopóki nie ma plików .woff2)", className: "font-display" },
